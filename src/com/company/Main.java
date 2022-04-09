@@ -23,13 +23,13 @@ public class Main {
             guess = answerObj.nextLine();
             if(Integer.parseInt(guess) > number){
                 System.out.println("Your guess was too high");
-            } else if (Integer.parseInt(guess) > number){
+            } else if (Integer.parseInt(guess) < number){
                 System.out.println("Your guess was too low");
             } else if (Integer.parseInt(guess) == number){
-                System.out.println("Good job, " + name + "! You guess my number" + number + " in " + counter + " guesses!!");
+                System.out.println("Good job, " + name + "! You guess my number " + number + " in " + counter + " guesses!!");
                 System.out.println("Would you like to play again? (y/n)");
                 last = answerObj.nextLine();
-                if(last=="y"){
+                if(last.equals("y")){
                     number = rand.nextInt(upperbound);
                     guess = "0";
                 } else{
@@ -37,9 +37,5 @@ public class Main {
                 }
             }
         }
-
-        System.out.println("Hello you guessed " + guess);
-        System.out.println("Hello! What is your name?");
-
     }
 }
