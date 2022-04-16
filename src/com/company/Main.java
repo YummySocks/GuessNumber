@@ -16,26 +16,29 @@ public class Main {
         String last;
         name = answerObj.nextLine();
         System.out.println("Hello"+ name + ", I am thinking of a number between 1 and 20");
-
-        while(Integer.parseInt(guess) != number){
-            counter++;
-            System.out.println("Take a guess");
-            guess = answerObj.nextLine();
-            if(Integer.parseInt(guess) > number){
-                System.out.println("Your guess was too high");
-            } else if (Integer.parseInt(guess) < number){
-                System.out.println("Your guess was too low");
-            } else if (Integer.parseInt(guess) == number){
-                System.out.println("Good job, " + name + "! You guess my number " + number + " in " + counter + " guesses!!");
-                System.out.println("Would you like to play again? (y/n)");
-                last = answerObj.nextLine();
-                if(last.equals("y")){
-                    number = rand.nextInt(upperbound);
-                    guess = "0";
-                } else{
-                    break;
+        try {
+            while (Integer.parseInt(guess) != number) {
+                counter++;
+                System.out.println("Take a guess");
+                guess = answerObj.nextLine();
+                if (Integer.parseInt(guess) > number) {
+                    System.out.println("Your guess was too high");
+                } else if (Integer.parseInt(guess) < number) {
+                    System.out.println("Your guess was too low");
+                } else if (Integer.parseInt(guess) == number) {
+                    System.out.println("Good job, " + name + "! You guess my number " + number + " in " + counter + " guesses!!");
+                    System.out.println("Would you like to play again? (y/n)");
+                    last = answerObj.nextLine();
+                    if (last.equals("y")) {
+                        number = rand.nextInt(upperbound);
+                        guess = "0";
+                    } else {
+                        break;
+                    }
                 }
             }
+        } catch(Exception e){
+            System.out.println("ya done goofed up");
         }
     }
 }
